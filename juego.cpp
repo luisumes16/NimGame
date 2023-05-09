@@ -1,6 +1,6 @@
  /* Nuestro juego
  Brayan de León, carnet 202307024
- Luis Colop 202308052
+ Luis Colop, 202308052
  Heber Garcia 
 */
 
@@ -46,9 +46,11 @@ void piramide(int fila1, int fila2,int fila3){
 }
 
 int main() {
+ 
     int fila1 = 3;
     int fila2 = 5;
     int fila3 = 7;
+ 
     piramide(fila1, fila2,fila3);
 
 
