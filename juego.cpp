@@ -8,7 +8,7 @@
 using namespace std;
 
 
-void piramide(int fila1, int fila2, int fila3){
+void piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3){
     cout<<fila1<<" "<<fila2<<" "<<fila3<<endl;
     int fila = 0;
     int restante = 0;
@@ -29,6 +29,7 @@ void piramide(int fila1, int fila2, int fila3){
     }
     cout<<endl;
     //Quitar puntos
+    cout<<"turno: "<<jugador1<<endl:
     cout<<"Cuantos va a quitar?"<<endl;
     cin>>restante;
     cout<<"De que fila?"<<endl;
@@ -36,16 +37,30 @@ void piramide(int fila1, int fila2, int fila3){
 
     switch(fila){
         case 1:
-            fila1 = fila1 - restante;
-            piramide(fila1, fila2, fila3);
-            break;
+            if(restante>fila1){
+              cout<<"numero es invalido"<<endl;
+            }else{
+             fila1=fila1-restante;
+            }
+             piramide(jugador1. jugador2, fila1, fila2, fila3);
+             break;
+   
         case 2:
-            fila2 = fila2 - restante;
-            piramide(fila1, fila2, fila3);
+             if(restante>fila2){
+               cout<<"numero es invalido"<<endl;
+             }else{
+              fila2 = fila2 - restante;
+             }
+             piramidre(jugador1, jugador2, fila1, fila2, fila3);
             break;
+      
         case 3:
+           if(restante>fila3){
+            cout<<"numero es invalido"<<endl;
+           }else{
             fila3 = fila3 - restante;
-            piramide(fila1, fila2, fila3);
+           }
+            piramide(jugador1, jugador2, fila1, fila2, fila3);
             break;
         default:
             break;
@@ -58,7 +73,15 @@ int main(){
     int fila1 = 3;
     int fila2 = 5;
     int fila3 = 7;
+    string jugador1=" ";
+    string jugador2=" ";
+ 
+   cout<<"ingrese el nombre del jugador 1"<<endl;
+   cin>>jugador1;
+ 
+   cout<<"ingrese el nombre del jugador 2"<<endl;
+   cin>>jugador2;
 
-    piramide(fila1, fila2, fila3);
+    piramide(jugador1, jugador2, fila1, fila2, fila3);
 }
 
