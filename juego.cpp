@@ -28,6 +28,22 @@ void piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3)
         cout << " * ";
     }
     cout<<endl;
+ 
+  	 //alternar turnos
+	   if(turno==true){
+		  cout<<"perdido "<<jugador1<<endl;
+	   }else{
+	  	cout<<"ganado "<<jugador2<<endl;
+    	}
+ 
+ 	//turnos de los jugadores
+    	if(turno==true){
+		   cout<<"turno del jugador "<<jugador1<<endl;
+		   turno=false;
+	    }else{
+		   cout<<"turno del jugador "<<jugador2<<endl;
+		   turno=true;
+	    }
     //Quitar puntos
     cout<<"turno: "<<jugador1<<endl:
     cout<<"Cuantos va a quitar?"<<endl;
@@ -75,6 +91,8 @@ int main(){
     int fila3 = 7;
     string jugador1=" ";
     string jugador2=" ";
+    bool turno=true;
+    int total=15;
  
    cout<<"ingrese el nombre del jugador 1"<<endl;
    cin>>jugador1;
