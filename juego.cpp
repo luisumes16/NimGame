@@ -10,6 +10,18 @@ int puntos_jugador1 = 0;
 int puntos_jugador2 = 0;
 int anterior_jugador1 = 0;
 int anterior_jugador2 = 0;
+
+int vueltas=0;
+
+
+void partida(){
+    cout<<"vamos por la vuelta"<<vueltas<<" "<<endl;
+    cout<<"PUNTO PLAY1: "<<puntos_jugador1<<" PUNTOS PLAY2: "<<puntos_jugador2<<endl;
+
+}
+
+
+
 int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, bool turno, int total, int ganados){
     if(total != 0) {
         cout << total << endl;
@@ -48,7 +60,6 @@ int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, 
             if (turno == true) {
                 puntos_jugador1 = puntos_jugador1+3;
                 cout<<"ha ganado el jugador "<<jugador1<<" obtiene "<<puntos_jugador1<<" puntos"<<endl;
-
                 /*
                 puntos_jugador2 = puntos_jugador2+3;
                 cout<<"el jugador: "<<jugador2<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
@@ -117,7 +128,7 @@ int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, 
         puntos_jugador2 +=1;
     }
 
-        return 1;
+    return 1;
 
 
 }
@@ -128,14 +139,14 @@ int main(){
     int fila3 = 7;
     int total= 15;
     int ganados = 0;
-
     int resultado = 0;
     bool turno = true;
     bool avanzar = true;
     string jugador1=" ";
     string jugador2=" ";
     int opcion;
-
+    int partida;
+    int veces;
 
     cout<<"ingrese el nombre del jugador 1"<<endl;
     cin>>jugador1;
@@ -143,15 +154,18 @@ int main(){
     cout<<"ingrese el nombre del jugador 2"<<endl;
     cin>>jugador2;
 
+
     do{
         resultado = piramide(jugador1, jugador2, fila1, fila2, fila3, turno, total, ganados);
         cout<<resultado<<endl;
+        
+        partida();
+
         if(resultado==1) {
             //Termino
             anterior_jugador1 = puntos_jugador1;
             anterior_jugador2 = puntos_jugador2;
             cout<<"YA TERMINO"<<endl;
-            cout<<"PUNTO PLAY1 "<<puntos_jugador1<<"PUNTOS PLAY2 "<<puntos_jugador2<<endl;
 
         }else{
 
@@ -164,6 +178,12 @@ int main(){
             avanzar = false;
         }
     } while(avanzar == true);
+
+
+
+
+
+
 
     cout<<"fin del juego"<<endl;
 
