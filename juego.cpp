@@ -14,9 +14,11 @@ int anterior_jugador2 = 0;
 int vueltas=0;
 
 
-void partida(){
-    cout<<"vamos por la vuelta"<<vueltas<<" "<<endl;
-    cout<<"PUNTO PLAY1: "<<puntos_jugador1<<" PUNTOS PLAY2: "<<puntos_jugador2<<endl;
+void partida(string jugador1,string jugador2){
+    cout<<endl;
+    cout<<"Vamos por la vuelta: "<<vueltas<<endl;
+    cout<<"El jugador: "<<jugador1<<", tiene: "<<puntos_jugador1<<" puntos."<<endl;
+    cout<<"El jugador: "<<jugador2<<", tiene: "<<puntos_jugador2<<" puntos."<<endl;
 
 }
 
@@ -145,7 +147,6 @@ int main(){
     string jugador1=" ";
     string jugador2=" ";
     int opcion;
-    int partida;
     int veces;
 
     cout<<"ingrese el nombre del jugador 1"<<endl;
@@ -158,14 +159,15 @@ int main(){
     do{
         resultado = piramide(jugador1, jugador2, fila1, fila2, fila3, turno, total, ganados);
         cout<<resultado<<endl;
-        
-        partida();
+
+        vueltas+=1;
+        partida(jugador1,jugador2);
 
         if(resultado==1) {
             //Termino
             anterior_jugador1 = puntos_jugador1;
             anterior_jugador2 = puntos_jugador2;
-            cout<<"YA TERMINO"<<endl;
+            cout<<"La vuelta ya termino"<<endl;
 
         }else{
 
