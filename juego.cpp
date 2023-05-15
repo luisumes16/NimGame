@@ -1,157 +1,153 @@
-/* Nuestro juego NIM
-Brayan de León, 202307024
+/* Nuestro juego
+Brayan de León, carnet 202307024
 Luis Colop, 202308052
-Heber Garcia: 202307031
+Heber Garcia
 */
 
 #include <iostream>
 using namespace std;
 
+int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, bool turno, int total, int ganados,int puntos_jugador1,int puntos_jugador2){
+    cout<<fila1<<" "<<fila2<<" "<<fila3<<endl;
+    int fila = 0;
+    int restante = 0;
+    cout<<"      ";
+    for(int i = 0; i<fila1; i++){
+        cout<<" * ";
 
-int piramide(int puntosjugador2, int puntosjugador1, int total, bool turno, string jugador1, string jugador2, int fila1, int fila2, int fila3){
-	
-	cout<<endl;
-	cout<<fila1<<" "<<fila2<<" "<<fila3<<endl;
-	int fila = 0;
-	int restante = 0;
-	
-	cout<<"      ";
-	for(int i = 0; i<fila1; i++){
-		cout<<" * ";
-		
-	}
-	cout<<endl;
-	cout<<"   ";
-	for(int i = 0; i<fila2; i++) {
-		cout << " * ";
-		
-	}
-	cout<<endl;
-	cout<<"";
-	for(int i = 0; i<fila3; i++) {
-		cout << " * ";
-		
-	}
-	cout<<endl;
-	
-	//evaluacion de puntos ganados
-	if(total==1){
-		if(turno==true){
-		return 1;
-		/*puntosjugador2=puntosjugador2+3;
-		cout<<"ha ganado el jugador "<<jugador2<<endl;
-		cout<<puntosjugador2<<" puntos"<<endl;*/
-	}else{
-		return 0;
-		/*puntosjugador1 = puntosjugador1+ 3 ;
-		cout<<"Ha ganado el jugador "<<jugador1<<endl;
-		cout<<puntosjugador1<<" puntos"<<endl;*/
-	}
-		
-	}
-	
-	
-	//turnos de los jugadores
-	if(turno==true){
-		cout<<endl;
-		cout<<"turno del jugador "<<jugador1<<endl;
-		turno=false;
-	}else{
-		cout<<endl;
-		cout<<"turno del jugador "<<jugador2<<endl;
-		turno=true;
-	}
-	
-	//Quitar puntos y seleccion de fila
-	cout<<"Cuantos va a quitar?"<<endl;
-	cin>>restante;
-	cout<<"De que fila?"<<endl;
-	cin>>fila;
-	
-	switch(fila){
-	case 1:
-		
-		if(restante>fila1){
-			cout<<"numero es invalido"<<endl;
-		}else{
-			fila1=fila1-restante;
-			total=total-restante;
-		}
-		piramide(puntosjugador2, puntosjugador1, total, turno, jugador1, jugador2, fila1, fila2, fila3);
-		break;
-		
-	case 2:
-		if(restante>fila2){
-			cout<<"numero es invalido"<<endl;
-		}else{
-		fila2 = fila2 - restante;
-		total=total-restante;
-		}
-		piramide(puntosjugador2, puntosjugador1, total, turno, jugador1, jugador2, fila1, fila2, fila3);
-		break;
-		
-	case 3:
-		   if(restante>fila3){
-			   cout<<"numero invalido"<<endl;
-		   }else{
-			fila3 = fila3 - restante;
-			total=total-restante;
-		
-		}
-		piramide(puntosjugador2, puntosjugador1, total, turno, jugador1, jugador2, fila1, fila2, fila3);
-		
-	default:
-	break;
-	}
-	
+    }
+    cout<<endl;
+    cout<<"   ";
+    for(int i = 0; i<fila2; i++) {
+        cout << " * ";
+    }
+    cout<<endl;
+    cout<<"";
+    for(int i = 0; i<fila3; i++) {
+        cout << " * ";
+    }
+    cout<<endl;
+
+    //TURNOS
+    if(turno == true){
+        cout<<"Es el turno del jugador: "<<jugador1<<endl;
+        turno=false;
+    }else{
+        cout<<"Es el turno del jugador: "<<jugador2<<endl;
+        turno=true;
+    }
+
+    //partidos ganados
+    if(total == 1){
+        if(turno==true){
+            return 1;
+            /*
+            puntos_jugador2 = puntos_jugador2+3;
+            cout<<"el jugador: "<<jugador2<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
+            */
+        }else{
+            return 0;
+            /*
+            puntos_jugador1 = puntos_jugador1+3;
+            cout<<"el jugador: "<<jugador1<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
+            */
+        }
+    }
+
+
+    /*
+     * if(total == 0){
+        return 3;
+        /*
+        puntos_jugador1 = puntos_jugador1+1;
+        cout<<"los jugadores han empatado"<<puntos_jugador1<<endl;
+        */
+
+    //Quitar puntos
+    cout<<"Cuantos va a quitar?"<<endl;
+    cin>>restante;
+    cout<<"De que fila?"<<endl;
+    cin>>fila;
+
+    switch(fila){
+        case 1:
+            if(restante>fila1){
+                cout<<"numero es invalido"<<endl;
+            }else{
+                fila1 = fila1-restante;
+                total = total - restante;
+            }
+            piramide(jugador1, jugador2, fila1, fila2, fila3, turno,total,ganados,puntos_jugador1,puntos_jugador2);
+            break;
+
+        case 2:
+            if(restante>fila2){
+                cout<<"numero es invalido"<<endl;
+            }else{
+                fila2 = fila2 - restante;
+                total = total - restante;
+            }
+            piramide(jugador1, jugador2, fila1, fila2, fila3, turno,total,ganados,puntos_jugador1,puntos_jugador2);
+            break;
+
+        case 3:
+            if(restante>fila3){
+                cout<<"numero es invalido"<<endl;
+            }else{
+                fila3 = fila3 - restante;
+                total = total - restante;
+            }
+            piramide(jugador1, jugador2, fila1, fila2, fila3, turno,total,ganados,puntos_jugador1,puntos_jugador2);
+            break;
+        default:
+            break;
+    }
+
 
 }
-	
-	int main(){
-		int fila1 = 3;
-		int fila2 = 5;
-		int fila3 = 7;
-		string jugador1="";
-		string jugador2="";
-		bool turno=true;
-		int total=15;
-		int puntosjugador1=0;
-		int puntosjugador2=0;
-		bool avanzar=true;
-		int resultado=0;
-		int opcion1=0;
-		
-		
-		cout<<"ingrese el nombre del jugador 1"<<endl;
-		cin>>jugador1;
-		
-		cout<<endl;
-		
-		cout<<"ingrese el nombre del jugador 2"<<endl;
-		cin>>jugador2;
-		
-		do{
-			
-			resultado= piramide(puntosjugador2, puntosjugador1, total, turno, jugador1, jugador2, fila1, fila2, fila3);
-		if(resultado==1){
-			cout<<"ha ganado el jugador "<<jugador2<<endl;
-		}else{
-			cout<<"ha ganado el jugador "<<jugador1<<endl;
-			
-		}
-		
-		cout<<"Desea continuar el juego? si [1] no [2]"<<endl;
-		   cin>>opcion1;
-		   
-		   if(opcion1==2){
-			   avanzar=false;
-		   }
-			
-		} while(avanzar==true);
-	
 
-		
-		return 0;
-	}
-		
+int main(){
+    int fila1 = 3;
+    int fila2 = 5;
+    int fila3 = 7;
+    int total= 15;
+    int ganados = 0;
+    int puntos_jugador1 = 0;
+    int puntos_jugador2 = 0;
+    int resultado = 0;
+    bool turno = true;
+    bool avanzar = true;
+    string jugador1=" ";
+    string jugador2=" ";
+    int opcion;
 
+
+    cout<<"ingrese el nombre del jugador 1"<<endl;
+    cin>>jugador1;
+
+    cout<<"ingrese el nombre del jugador 2"<<endl;
+    cin>>jugador2;
+
+    do{
+        resultado = piramide(jugador1, jugador2, fila1, fila2, fila3, turno, total, ganados,puntos_jugador1,puntos_jugador2);
+        if(resultado==1) {
+            puntos_jugador2 = puntos_jugador2+3;
+            cout<<"ha ganado el jugador "<<jugador2<<" obtiene "<<puntos_jugador2<<" puntos"<<endl;
+        }else{
+            puntos_jugador1 = puntos_jugador1+3;
+            cout<<"ha ganado el jugador "<<jugador1<<" obtiene "<<puntos_jugador1<<" puntos"<<endl;
+        }
+
+
+        cout<<"desea coontinuar el juego? si [1] no [2]"<<endl;
+        cin>>opcion;
+        if(opcion == 2){
+            avanzar = false;
+        }
+    } while(avanzar == true);
+
+    cout<<"fin del juego"<<endl;
+
+    return 0;
+
+}
