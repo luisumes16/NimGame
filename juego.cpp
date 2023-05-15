@@ -61,14 +61,14 @@ int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, 
         if (total == 1) {
             if (turno == true) {
                 puntos_jugador1 = puntos_jugador1+3;
-                cout<<"ha ganado el jugador "<<jugador1<<" obtiene "<<puntos_jugador1<<" puntos"<<endl;
+                cout<<"ha ganado el jugador "<<jugador1<<", ahora tiene "<<puntos_jugador1<<" puntos"<<endl;
                 /*
                 puntos_jugador2 = puntos_jugador2+3;
                 cout<<"el jugador: "<<jugador2<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
                 */
             } else {
                 puntos_jugador2 = puntos_jugador2+3;
-                cout<<"ha ganado el jugador "<<jugador2<<" obtiene "<<puntos_jugador2<<" puntos"<<endl;
+                cout<<"Ha ganado el jugador "<<jugador2<<", ahora tiene "<<puntos_jugador2<<" puntos"<<endl;
                 /*
                 puntos_jugador1 = puntos_jugador1+3;
                 cout<<"el jugador: "<<jugador1<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
