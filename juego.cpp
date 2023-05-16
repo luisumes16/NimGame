@@ -19,16 +19,12 @@ void partida(string jugador1,string jugador2){
     cout<<"Vamos por la vuelta: "<<vueltas<<endl;
     cout<<"El jugador: "<<jugador1<<", tiene: "<<puntos_jugador1<<" puntos."<<endl;
     cout<<"El jugador: "<<jugador2<<", tiene: "<<puntos_jugador2<<" puntos."<<endl;
-
 }
 
 
 
 int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, bool turno, int total, int ganados){
     if(total != 0) {
-        cout << total << endl;
-        cout << turno << endl;
-        cout << fila1 << " " << fila2 << " " << fila3 << endl;
         int fila = 0;
         int restante = 0;
         cout << "      ";
@@ -62,28 +58,15 @@ int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, 
             if (turno == true) {
                 puntos_jugador1 = puntos_jugador1+3;
                 cout<<"ha ganado el jugador "<<jugador1<<", ahora tiene "<<puntos_jugador1<<" puntos"<<endl;
-                /*
-                puntos_jugador2 = puntos_jugador2+3;
-                cout<<"el jugador: "<<jugador2<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
-                */
+
             } else {
                 puntos_jugador2 = puntos_jugador2+3;
                 cout<<"Ha ganado el jugador "<<jugador2<<", ahora tiene "<<puntos_jugador2<<" puntos"<<endl;
-                /*
-                puntos_jugador1 = puntos_jugador1+3;
-                cout<<"el jugador: "<<jugador1<<" ha ganado"<<"tiene: "<<puntos_jugador1<<"puntos"<<endl;
-                */
             }
         }
 
 
-        /*
-         * if(total == 0){
-            return 3;
-            /*
-            puntos_jugador1 = puntos_jugador1+1;
-            cout<<"los jugadores han empatado"<<puntos_jugador1<<endl;
-            */
+
 
         //Quitar puntos
         cout << "Cuantos va a quitar?" << endl;
@@ -122,6 +105,9 @@ int piramide(string jugador1, string jugador2, int fila1, int fila2, int fila3, 
                 piramide(jugador1, jugador2, fila1, fila2, fila3, turno, total, ganados);
                 break;
             default:
+                if (fila > 3){
+                    cout<<"El numero de fila ingresado no existe"<<endl;
+                }
                 break;
         }
     }
@@ -147,7 +133,6 @@ int main(){
     string jugador1=" ";
     string jugador2=" ";
     int opcion;
-    int veces;
 
     cout<<"ingrese el nombre del jugador 1"<<endl;
     cin>>jugador1;
@@ -158,7 +143,6 @@ int main(){
 
     do{
         resultado = piramide(jugador1, jugador2, fila1, fila2, fila3, turno, total, ganados);
-        cout<<resultado<<endl;
 
         vueltas+=1;
         partida(jugador1,jugador2);
@@ -167,8 +151,6 @@ int main(){
             //Termino
             anterior_jugador1 = puntos_jugador1;
             anterior_jugador2 = puntos_jugador2;
-            cout<<"La vuelta ya termino"<<endl;
-
         }else{
 
         }
@@ -180,12 +162,6 @@ int main(){
             avanzar = false;
         }
     } while(avanzar == true);
-
-
-
-
-
-
 
     cout<<"fin del juego"<<endl;
 
