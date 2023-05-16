@@ -1,7 +1,9 @@
-/* Nuestro juego
-Brayan de León, carnet 202307024
-Luis Colop, 202308052
-Heber Garcia, 202307031
+/* JUEGO NIM
+PROGRAMADORES:
+Colop Tzoc, Luis Rolando 202308052
+de Leon Pereira, Brayan Alexander 202307024
+Garcia Garcia, Heber Leonel 202307031
+FECHA: 15/05/2023
 */
 
 #include <iostream>
